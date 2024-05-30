@@ -1,0 +1,8 @@
+1.0.0:
+    - 'First version of Clients'
+1.0.1:
+    - 'Create Clients Table'
+    - v1.0.1/create_clients_table.php
+1.0.2:
+    - 'Create Appointments Table'
+    - v1.0.2/create_appointments_table.php

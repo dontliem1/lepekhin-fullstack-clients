@@ -1,0 +1,9 @@
+name: "lepekhin-clients"
+description: "No description provided yet..."
+author: "Winter CMS Scaffold"
+homepage: "https://example.com"
+code: "lepekhin-clients"
+form:
+    fields:
+        googleanalytics_id:
+            label: 'Google Analytics ID'

@@ -1,0 +1,22 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: 'lepekhin.clients::lang.models.general.id'
+        disabled: true
+        context: 'update'
+    name:
+        label: 'lepekhin.clients::lang.models.client.name'
+        required: true
+        span: auto
+    birthday:
+        firstDay: 1
+        label: 'lepekhin.clients::lang.models.client.birthday'
+        type: datepicker
+        mode: date
+        span: auto
+    appointments:
+        label: 'lepekhin.clients::lang.models.appointment.label_plural'
+        type: relationmanager

@@ -1,0 +1,27 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: 'lepekhin.clients::lang.models.general.id'
+        searchable: true
+    name:
+        label: 'lepekhin.clients::lang.models.client.name'
+        searchable: true
+    birthday:
+        label: 'lepekhin.clients::lang.models.client.birthday'
+        type: date
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'lepekhin.clients::lang.models.general.created_at'
+        type: datetime
+        searchable: true
+        sortable: true
+        invisible: true
+    updated_at:
+        label: 'lepekhin.clients::lang.models.general.updated_at'
+        type: datetime
+        searchable: true
+        sortable: true

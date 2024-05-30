@@ -1,0 +1,7 @@
+appointments:
+    label: 'lepekhin.clients::lang.models.appointment.title_plural'
+    view:
+        list: $/lepekhin/clients/models/appointment/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/lepekhin/clients/models/appointment/fields.yaml

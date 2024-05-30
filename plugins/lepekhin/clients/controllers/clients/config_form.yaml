@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'lepekhin.clients::lang.models.client.label'
+
+# Model Form Field configuration
+form: $/lepekhin/clients/models/client/fields.yaml
+
+# Model Class name
+modelClass: Lepekhin\Clients\Models\Client
+
+# Default redirect location
+defaultRedirect: lepekhin/clients/clients
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: lepekhin/clients/clients/update/:id
+    redirectClose: lepekhin/clients/clients
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: lepekhin/clients/clients
+    redirectClose: lepekhin/clients/clients
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

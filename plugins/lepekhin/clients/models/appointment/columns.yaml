@@ -1,0 +1,19 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    client_id:
+        label: 'lepekhin.clients::lang.models.general.id'
+        searchable: true
+    starts_at:
+        label: 'lepekhin.clients::lang.models.appointment.starts_at'
+        type: datetime
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'lepekhin.clients::lang.models.general.created_at'
+        type: datetime
+        searchable: true
+        sortable: true
+        invisible: true

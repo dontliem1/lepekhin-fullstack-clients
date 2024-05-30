@@ -1,0 +1,59 @@
+@view-transition {
+    navigation: auto;
+}
+
+:root {
+    accent-color: indigo;
+    font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+}
+
+body {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em 4em;
+    margin: 0;
+    padding: 1.5em 1.5em 3em;
+}
+
+h1 {
+    flex-basis: 100%;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+p+p {
+    margin-block-start: 1em;
+}
+
+select,
+input {
+    font: inherit;
+}
+
+input[type="checkbox"] {
+    vertical-align: top;
+}
+
+ul {
+    display: inline-block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.clients__item+.clients__item {
+    margin-block-start: 1em;
+}
+
+.clients__name {
+    font-size: 125%;
+    margin: 0;
+}
+
+.clients__desc {
+    opacity: .5;
+}

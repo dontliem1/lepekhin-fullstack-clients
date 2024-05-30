@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: 'lepekhin.clients::lang.models.appointment.label'
+
+# Model Form Field configuration
+form: $/lepekhin/clients/models/appointment/fields.yaml
+
+# Model Class name
+modelClass: Lepekhin\Clients\Models\Appointment
+
+# Default redirect location
+defaultRedirect: lepekhin/clients/appointments
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: lepekhin/clients/appointments/update/:id
+    redirectClose: lepekhin/clients/appointments
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: lepekhin/clients/appointments
+    redirectClose: lepekhin/clients/appointments
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

@@ -1,0 +1,16 @@
+{% if clients|length %}
+<ul>
+    {% for client in clients %}
+        <li class="clients__item" style="view-transition-name: client-{{ client.id }};">
+            <h2 class="clients__name">{{ client.name }}</h2>
+            <small class="clients__desc">
+                {# TODO: print values based on get.filter https://twig.symfony.com/doc/3.x/tags/if.html #}
+                {{ client.birthday }}
+                {{ client.appointments.first().starts_at }}
+            </small>
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>Никого не найдено</p>
+{% endif %}
