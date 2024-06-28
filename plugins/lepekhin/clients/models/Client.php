@@ -2,9 +2,11 @@
 
 namespace Lepekhin\Clients\Models;
 
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Winter\Storm\Argon\Argon;
 use Winter\Storm\Database\Model;
+use Winter\Storm\Database\Traits\Validation;
 
 /**
  * Client Model
@@ -15,7 +17,7 @@ use Winter\Storm\Database\Model;
  */
 class Client extends Model
 {
-    use \Winter\Storm\Database\Traits\Validation;
+    use Validation;
 
     /**
      * @var string The database table used by the model.
@@ -35,10 +37,27 @@ class Client extends Model
         'updated_at',
     ];
 
+    protected $appends = [
+        'beauty_birthday'
+    ];
+
     public $hasMany = [
         'appointments' => [
             Appointment::class,
             'order' => 'starts_at desc'
         ],
     ];
+
+
+    /**
+     * @return string|null
+     */
+    public function getBeautyBirthdayAttribute(): ?string
+    {
+        if (!$this->birthday) {
+            return null;
+        }
+
+        return Carbon::parse($this->birthday)->isoFormat('DD MMMM YYYY');
+    }
 }
