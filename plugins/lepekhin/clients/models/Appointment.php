@@ -2,6 +2,7 @@
 
 namespace Lepekhin\Clients\Models;
 
+use Illuminate\Support\Carbon;
 use Winter\Storm\Database\Model;
 
 /**
@@ -30,7 +31,23 @@ class Appointment extends Model
         'starts_at',
     ];
 
+    protected $appends = [
+        'beauty_start_at'
+    ];
+
     public $belongsTo = [
         'client' => Client::class,
     ];
+
+    /**
+     * @return string|null
+     */
+    public function getBeautyStartAtAttribute(): ?string
+    {
+        if (!$this->starts_at) {
+            return null;
+        }
+
+        return Carbon::parse($this->starts_at)->isoFormat('DD MMMM YYYY [г] HH:mm');
+    }
 }

@@ -1,16 +1,18 @@
 {{ form_open({ method: 'GET', id: 'clientsFiltersForm', model: get }) }}
-    {# TODO: make search input #}
+    <p class="search">
+        <label>Поиск {{ form_input('text', 'search',  get['search'] ?? null) }}</label>
+    </p>
     <p>
         {{ form_select('sort', {
-            'name': 'По имени',
-            'birthday': 'По дате рождения',
-            'last_appointment': 'По последнему посещению'
-        }, null, { 'aria-label': 'Сортировка' }) }}
+        'name': 'По имени',
+        'birthday': 'По дате рождения',
+        'last_appointment': 'По последнему посещению'
+        }, null, { 'aria-label': 'Сортировка', 'id': 'sortSelect' }) }}
     </p>
-    <p><label>{{ form_checkbox('inverse', 'on', get.inverse is same as 'on', { 0: 'switch' }) }} В обратном порядке</label></p>
+    <p><label>{{ form_checkbox('inverse', 'on', get.inverse is same as 'on', { 0: 'switch',  'id': 'submitForm'}) }} В обратном порядке</label></p>
     <p>
         {# <noscript> #}
-            {{ form_submit('Применить') }}
+        {{ form_button('Применить', { 'class': 'submit-form-btn' }) }}
         {# </noscript> #}
     </p>
 {{ form_close() }}
