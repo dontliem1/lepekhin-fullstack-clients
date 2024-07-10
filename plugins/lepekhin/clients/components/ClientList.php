@@ -19,15 +19,36 @@ class ClientList extends ComponentBase
         ];
     }
 
+
     public function onRun()
     {
+        // Получение параметров запроса
         $this->page['get'] = get();
-        $search = get('search');
-        $this->page['clients'] = Client::when($search, function (Builder $query, $search) {
+        $search = trim(get('search'));
+        $sort = get('sort');
+        $inverse = get('inverse') === 'on';
+
+        $query = Client::when($search, function (Builder $query, $search) {
             return $query->where(function (Builder $query) use ($search) {
-                $searchString = "$search%";
-                return $query->where('name', 'like', $searchString);
+                $searchString = "%$search%";
+                return $query->where('name', 'like', $searchString)
+                    ->orderByDesc('name');
             });
-        })->inRandomOrder(/* TODO: sort clients https://wintercms.com/docs/v1.2/docs/database/query#ordering-grouping-limit--offset */)->get();
+        });
+
+        if ($sort) {
+            if ($inverse) {
+                $query->orderByDesc($sort);
+            } else {
+                $query->orderBy($sort);
+            }
+        }
+
+        if (!empty($search)) {
+            $this->page['clients'] = $query->get('name');
+        } else {
+            $this->page['clients'] = $query->get();
+        }
+
     }
 }
