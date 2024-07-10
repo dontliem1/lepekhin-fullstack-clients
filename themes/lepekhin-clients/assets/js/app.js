@@ -2,6 +2,8 @@
     const clientsFiltersForm = document.getElementById('clientsFiltersForm');
 
     if (clientsFiltersForm) {
-        /* Optional TODO: change list without refresh */
+        clientsFiltersForm.querySelector("select[name='sort']").addEventListener('change', () => clientsFiltersForm.submit())
+        clientsFiltersForm.querySelector("input[name='search']").addEventListener('change', () => clientsFiltersForm.submit())
+        clientsFiltersForm.querySelector("input[name='inverse']").addEventListener('change', () => clientsFiltersForm.submit())
     }
 })();

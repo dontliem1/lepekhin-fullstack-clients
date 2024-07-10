@@ -7,6 +7,9 @@
             'last_appointment': 'По последнему посещению'
         }, null, { 'aria-label': 'Сортировка' }) }}
     </p>
+    <p>
+        {{ form_input('search', 'search', 'Поиск по имени') }}
+    </p>
     <p><label>{{ form_checkbox('inverse', 'on', get.inverse is same as 'on', { 0: 'switch' }) }} В обратном порядке</label></p>
     <p>
         {# <noscript> #}
