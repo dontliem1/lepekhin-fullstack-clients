@@ -1,7 +1,9 @@
 {{ form_open({ method: 'GET', id: 'clientsFiltersForm', model: get }) }}
     {# TODO: make search input #}
     <p>
-        {{ form_select('sort', {
+        <label>Поиск по имени {{ form_input('search', 'search',  get.search) }}</label>
+    </p>
+    <p>Сортировка {{ form_select('sort', {
             'name': 'По имени',
             'birthday': 'По дате рождения',
             'last_appointment': 'По последнему посещению'
