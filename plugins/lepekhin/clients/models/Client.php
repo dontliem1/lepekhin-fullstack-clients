@@ -2,6 +2,7 @@
 
 namespace Lepekhin\Clients\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Collection;
 use Winter\Storm\Argon\Argon;
 use Winter\Storm\Database\Model;
@@ -33,6 +34,7 @@ class Client extends Model
     protected $dates = [
         'created_at',
         'updated_at',
+        'birthday'
     ];
 
     public $hasMany = [
@@ -41,4 +43,16 @@ class Client extends Model
             'order' => 'starts_at desc'
         ],
     ];
+
+    /**
+     * @return Attribute
+     */
+    protected function humanBirthday(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->birthday
+                ? $this->birthday->locale('ru')->isoFormat('DD MMMM YYYY')
+                : null,
+        );
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace Lepekhin\Clients\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Winter\Storm\Database\Model;
 
 /**
@@ -33,4 +34,16 @@ class Appointment extends Model
     public $belongsTo = [
         'client' => Client::class,
     ];
+
+    /**
+     * @return Attribute
+     */
+    protected function humanStartsAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->starts_at
+                ? $this->starts_at->locale('ru')->isoFormat('LLLL')
+                : null,
+        );
+    }
 }
